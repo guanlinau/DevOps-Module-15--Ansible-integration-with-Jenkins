@@ -35,12 +35,12 @@ pipeline {
                 script {
                     def remote = [:]
                     remote.name = 'ansible_server'
-                    remote.hosts = ${ANSIBLE_SERVER_IP}
+                    remote.hosts ="170.64.182.106"
                     remote.allowAnyHots = true
 
                     withCredentials([sshUserPrivateKey(credentialsId:'ansible_server_credentials', keyFileVariable:'keyFile', passphraseVariable: '',usernameVariable: 'userName')]){
-                        remote.user = ${userName}
-                        remote.identifyFile = ${keyFile}
+                        remote.user = userName
+                        remote.identifyFile = keyFile
                         sshCommand remote: remote, command: "ansible-playbook ansible.yaml"
 
                     }
