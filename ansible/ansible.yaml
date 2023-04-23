@@ -4,6 +4,8 @@
   become: yes
   tasks:
     - name: Update yum package and install docker
+      vars:
+        ansible_python_interpreter: /usr/bin/python
       yum:
         name:
           - docker
