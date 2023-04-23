@@ -30,8 +30,9 @@
   become: yes
   tasks:
     - name: Add ec2-user to docker group
-      user: ec2-user
-      group: docker
-      append: yes
+      user:
+        user: ec2-user
+        groups: docker
+        append: yes
     - name: ec2-user reconnect to server session
       meta: reset_connection
