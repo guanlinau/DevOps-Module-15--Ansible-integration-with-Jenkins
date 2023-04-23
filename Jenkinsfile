@@ -15,7 +15,7 @@ pipeline {
                         sh 'scp -o StrictHostKeyChecking=no ansible/* root@${ANSIBLE_SERVER_IP}:/root'
 
                         withCredentials([sshUserPrivateKey(credentialsId: 'ec2_server_credentials', keyFileVariable: 'keyfile', usernameVariable: 'user')]){
-                            sh 'scp ${keyfile} root@${ANSIBLE_SERVER_IP}:~/.ssh/ssh_private_key.pem'
+                            sh 'scp ${keyfile} root@${ANSIBLE_SERVER_IP}:~/.ssh/ssh_private_key'
                         }
                     }
 
