@@ -36,7 +36,7 @@ pipeline {
                 remote.name = 'ansible_server'
                 remote.hosts = ${ANSIBLE_SERVER_IP}
                 remote.allowAnyHots = true
-                withCredentials([sshUserPrivateKey(credentialsId:'ansible_server_credentials', keyFileVariable:'keyFile'), passphraseVariable: '',usernameVariable: 'userName' ]){
+                withCredentials([sshUserPrivateKey(credentialsId:'ansible_server_credentials', keyFileVariable:'keyFile', passphraseVariable: '',usernameVariable: 'userName')]){
                     remote.user = userName
                     remote.identifyFile = keyFile
                     sshCommand remote: remote, command: "ansible-playbook ansible.yaml"
