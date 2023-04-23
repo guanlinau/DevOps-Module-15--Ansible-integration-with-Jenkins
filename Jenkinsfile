@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     sshagent(["ansible_server_credentials"]){
-                        sh 'ssh -o StrictHostKeyChecking=no ansible/* root@${ANSIBLE_SERVER_IP} mkdir galen'
+                        sh 'ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} mkdir galen'
                     }
 
                 }
