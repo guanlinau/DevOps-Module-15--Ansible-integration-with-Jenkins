@@ -2,9 +2,9 @@
 
 pipeline {
     agent any
-    environment {
-        ANSIBLE_SERVER_IP = 170.64.182.106
-    }
+    // environment {
+    //     ANSIBLE_SERVER_IP = 170.64.182.106
+    // }
 
     stages {
         stage ("copying files to ansible server") {
