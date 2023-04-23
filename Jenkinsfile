@@ -22,5 +22,16 @@ pipeline {
                 }
             }
         }
+        stage("Executing ansible playbook") {
+            steps {
+                script {
+                    sshagent(["ansible_server_credentials"]){
+                        sh 'ssh -o StrictHostKeyChecking=no ansible/* root@${ANSIBLE_SERVER_IP} mkdir galen'
+                    }
+
+                }
+            }
+        }
     }
+
 }
