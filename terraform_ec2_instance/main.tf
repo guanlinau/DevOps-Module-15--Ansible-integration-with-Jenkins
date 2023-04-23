@@ -19,6 +19,9 @@ variable server_user {}
 variable instance_number {
   
 }
+variable ansible_server_ip_address {
+  
+}
 
 // 1) Create a vpc 
 resource "aws_vpc" "myapp_vpc" {
@@ -90,7 +93,7 @@ resource "aws_default_security_group" "myapp_default_security_group" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = [ var.my_ip_address]
+    cidr_blocks = [ var.my_ip_address, var.ansible_server_ip_address]
   }
   ingress {
     from_port = 8080
