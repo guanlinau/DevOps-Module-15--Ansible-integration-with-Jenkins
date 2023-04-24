@@ -28,3 +28,41 @@ c. Copy the ssh keys for the Ansible Managed Node servers to the Ansible Control
 
 e. With everything installed and copied to the remote Ansible Control Node server, execute the
 playbook remotely on that Control Node that will configure the 2 EC2 Managed Nodes
+
+### Usage instruction
+
+###### Step1 : Create ansible server
+
+###### Step2: Create ec2 instance via terraform
+
+```
+vpc_cidr_block =
+subnet_cidr_block =
+availability_zone =
+env_profix =
+my_ip_address =
+ansible_server_ip_address=
+instance_type =
+public_key_location  =
+ssh_private_key_location =
+server_user =
+instance_number =
+
+```
+
+#Add local computer ip address into variable "my_ip_address"
+#Add ansible server ip address into variable "ansible_server_ip_address"
+
+```
+cd terraform_ec2_instance
+```
+
+```
+terraform apply --auto-approve
+```
+
+###### Step3: Create ansible.yaml and execute it
+
+###### Step 4: Build the pipeline
+
+![image](images/Screenshot%202023-04-24%20at%2011.36.27%20am.png)
