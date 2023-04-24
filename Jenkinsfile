@@ -25,25 +25,25 @@ pipeline {
         stage("Executing ansible playbook") {
             steps {
                 //  Method 1
-                // script {
-                //     sshagent(["ansible_server_credentials"]){
-                //         sh 'ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} ansible-playbook ansible.yaml'
-                //     }
-
-                // }
-                //  method 2 : using ssh pipeline step
                 script {
-                    def remote = [:]
-                    remote.name = 'ubuntu-ansible-server-s-2vcpu-4gb-intel-syd1-01'
-                    remote.host ="170.64.182.106"
-                    remote.allowAnyHosts = true
-
-                    withCredentials([sshUserPrivateKey(credentialsId: 'ansible_server_credentials', keyFileVariable: 'keyFile', passphraseVariable: '', usernameVariable: 'user')]) {
-                        remote.user = user
-                        remote.identityFile = keyFile
-                        sshCommand remote: remote, command: "ansible-playbook ansible.yaml"
+                    sshagent(["ansible_server_credentials"]){
+                        sh 'ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} ansible-playbook ansible.yaml'
                     }
+
                 }
+                //  method 2 : using ssh pipeline step
+                // script {
+                //     def remote = [:]
+                //     remote.name = 'ubuntu-ansible-server-s-2vcpu-4gb-intel-syd1-01'
+                //     remote.host ="170.64.182.106"
+                //     remote.allowAnyHosts = true
+
+                //     withCredentials([sshUserPrivateKey(credentialsId: 'ansible_server_credentials', keyFileVariable: 'keyFile', passphraseVariable: '', usernameVariable: 'user')]) {
+                //         remote.user = user
+                //         remote.identityFile = keyFile
+                //         sshCommand remote: remote, command: "ansible-playbook ansible.yaml"
+                //     }
+                // }
             }
         }
     }
