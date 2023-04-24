@@ -28,7 +28,7 @@ pipeline {
                 //  Method 1
                 script {
                     sshagent(["ansible_server_credentials"]){
-                        sh 'ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} prepare_ansible_server.sh  ansible-playbook ansible.yaml'
+                        sh 'ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} ./prepare_ansible_server.sh  ansible-playbook ansible.yaml'
                     }
 
                 }
