@@ -28,8 +28,9 @@ pipeline {
                 //  Method 1
                 script {
                     def installCMD = 'bash prepare_ansible_server.sh'
+                    def runAnsible ='ansible-playbook ansible.yaml'
                     sshagent(["ansible_server_credentials"]){
-                        sh "ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} ${installCMD}  ansible-playbook ansible.yaml"
+                        sh "ssh -o StrictHostKeyChecking=no root@${ANSIBLE_SERVER_IP} ${installCMD}  ${runAnsible}"
                     }
 
                 }
