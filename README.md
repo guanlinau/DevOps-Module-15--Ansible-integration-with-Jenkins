@@ -31,9 +31,17 @@ playbook remotely on that Control Node that will configure the 2 EC2 Managed Nod
 
 ### Usage instruction
 
-###### Step1 : Create ansible server
+###### Step1 : Create ansible and jenkins server
 
-###### Step2: Create ec2 instance via terraform
+#Ansible server
+![image](images/Screenshot%202023-04-29%20at%203.10.57%20pm.png)
+
+#Jenkins server
+![image](images/Screenshot%202023-04-29%20at%203.11.43%20pm.png)
+
+![image](images/Screenshot%202023-04-29%20at%203.12.37%20pm.png)
+
+###### Step2: Create two ec2 instances via terraform
 
 ```
 vpc_cidr_block =
