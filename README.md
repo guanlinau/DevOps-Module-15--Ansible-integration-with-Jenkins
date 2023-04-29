@@ -69,9 +69,13 @@ cd terraform_ec2_instance
 terraform apply --auto-approve
 ```
 
-###### Step3: Create ansible.yaml and execute it
+###### Step 3: Create inventory plugin to get the running ec2 server's public domain name address
 
-###### Step 4: Build the pipeline
+![image](images/Screenshot%202023-04-29%20at%204.36.00%20pm.png)
+
+###### Step 4: Create ansible.yaml and execute it
+
+###### Step 5: Build the pipeline
 
 #Using SSH-Agent plugin
 ![image](images/Screenshot%202023-04-24%20at%2011.36.27%20am.png)
