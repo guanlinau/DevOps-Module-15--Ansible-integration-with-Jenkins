@@ -25,6 +25,7 @@ pipeline {
         }
         stage("Executing ansible playbook") {
             steps {
+                echo "Executing ansible playbook"
                 //  Method 1
                 // script {
                 //     def installCMD = 'bash prepare_ansible_server.sh'
