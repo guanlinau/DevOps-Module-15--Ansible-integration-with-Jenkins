@@ -73,4 +73,9 @@ terraform apply --auto-approve
 
 ###### Step 4: Build the pipeline
 
+#Using SSH-Agent plugin
 ![image](images/Screenshot%202023-04-24%20at%2011.36.27%20am.png)
+
+#Using SSH pipeline step plugin
+![images](images/Screenshot%202023-04-29%20at%204.13.09%20pm.png)
+![images](images/Screenshot%202023-04-29%20at%204.13.22%20pm.png)
